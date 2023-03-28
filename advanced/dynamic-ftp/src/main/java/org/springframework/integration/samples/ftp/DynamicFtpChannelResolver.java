@@ -69,7 +69,7 @@ public class DynamicFtpChannelResolver {
 				};
 
 	private final Map<MessageChannel, ConfigurableApplicationContext> contexts =
-				new HashMap<MessageChannel, ConfigurableApplicationContext>();
+				new HashMap<>();
 
 
 

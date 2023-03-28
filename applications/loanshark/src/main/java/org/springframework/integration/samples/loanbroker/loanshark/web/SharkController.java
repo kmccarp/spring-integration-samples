@@ -110,11 +110,7 @@ public class SharkController {
 	}
 
 	Converter<LoanShark, String> getLoanSharkConverter() {
-		return new Converter<LoanShark, String>() {
-			public String convert(LoanShark loanShark) {
-				return new StringBuilder().append(loanShark.getName()).append(" ").append(loanShark.getCounter()).append(" ").append(loanShark.getAverageRate()).toString();
-			}
-		};
+		return loanShark -> loanShark.getName() + " " + loanShark.getCounter() + " " + loanShark.getAverageRate();
 	}
 
 	@InitBinder
@@ -134,7 +130,7 @@ public class SharkController {
 	@RequestMapping(method = RequestMethod.POST, headers = "Accept=application/json")
 	public ResponseEntity<String> createFromJson(@RequestBody String json) {
 		LoanShark.fromJsonToLoanShark(json).persist();
-		return new ResponseEntity<String>("LoanShark created", HttpStatus.CREATED);
+		return new ResponseEntity<>("LoanShark created", HttpStatus.CREATED);
 	}
 
 	@RequestMapping(headers = "Accept=application/json")
@@ -148,6 +144,6 @@ public class SharkController {
 		for (LoanShark loanshark: LoanShark.fromJsonArrayToLoanSharks(json)) {
 			loanshark.persist();
 		}
-		return new ResponseEntity<String>("LoanShark created", HttpStatus.CREATED);
+		return new ResponseEntity<>("LoanShark created", HttpStatus.CREATED);
 	}
 }

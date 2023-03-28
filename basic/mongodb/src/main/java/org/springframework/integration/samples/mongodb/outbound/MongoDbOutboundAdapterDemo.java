@@ -44,9 +44,9 @@ public class MongoDbOutboundAdapterDemo {
 				new ClassPathXmlApplicationContext("mongodb-out-config.xml", MongoDbOutboundAdapterDemo.class);
 
 		MessageChannel messageChannel = context.getBean("defaultAdapter", MessageChannel.class);
-		messageChannel.send(new GenericMessage<Person>(this.createPersonA()));
-		messageChannel.send(new GenericMessage<Person>(this.createPersonB()));
-		messageChannel.send(new GenericMessage<Person>(this.createPersonC()));
+		messageChannel.send(new GenericMessage<>(this.createPersonA()));
+		messageChannel.send(new GenericMessage<>(this.createPersonB()));
+		messageChannel.send(new GenericMessage<>(this.createPersonC()));
 	}
 
 	public void runAdapterWithConverter() throws Exception {
@@ -56,7 +56,7 @@ public class MongoDbOutboundAdapterDemo {
 				new ClassPathXmlApplicationContext("mongodb-out-config.xml", MongoDbOutboundAdapterDemo.class);
 
 		MessageChannel messageChannel = context.getBean("adapterWithConverter", MessageChannel.class);
-		messageChannel.send(new GenericMessage<String>("John, Dow, Palo Alto, 3401 Hillview Ave, 94304, CA"));
+		messageChannel.send(new GenericMessage<>("John, Dow, Palo Alto, 3401 Hillview Ave, 94304, CA"));
 	}
 
 	private Person createPersonA(){

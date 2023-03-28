@@ -143,7 +143,7 @@ public class Application {
 		IntegrationFlow flow =
 				IntegrationFlow
 						.from(Kafka.messageDrivenChannelAdapter(
-								new DefaultKafkaConsumerFactory<String, String>(consumerProperties), topics))
+								new DefaultKafkaConsumerFactory<>(consumerProperties), topics))
 						.channel("fromKafka")
 						.get();
 		this.flowContext.registration(flow).register();

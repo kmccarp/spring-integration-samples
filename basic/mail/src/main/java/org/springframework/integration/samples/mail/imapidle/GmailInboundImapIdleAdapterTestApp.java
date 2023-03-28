@@ -21,8 +21,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.messaging.Message;
-import org.springframework.messaging.MessageHandler;
-import org.springframework.messaging.MessagingException;
 
 /**
  * @author Oleg Zhurakousky
@@ -38,11 +36,8 @@ public class GmailInboundImapIdleAdapterTestApp {
 		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(
 				"/META-INF/spring/integration/gmail-imap-idle-config.xml");
 		DirectChannel inputChannel = ac.getBean("receiveChannel", DirectChannel.class);
-		inputChannel.subscribe(new MessageHandler() {
-			@Override
-			public void handleMessage(Message<?> message) throws MessagingException {
-				logger.info("Message: " + message);
-			}
+		inputChannel.subscribe(message -> {
+			logger.info("Message: " + message);
 		});
 	}
 }

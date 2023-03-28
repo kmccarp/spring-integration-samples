@@ -37,6 +37,8 @@ import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 @SuppressWarnings("serial")
 public class JaxbJacksonObjectMapper extends ObjectMapper {
 
+	private static final long serialVersionUID = 1;
+
 	/**
 	 * Annotation introspector to use for serialization process
 	 * is configured separately for serialization and deserialization purposes
