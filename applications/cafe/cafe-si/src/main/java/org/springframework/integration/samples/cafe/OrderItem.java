@@ -32,7 +32,7 @@ public class OrderItem implements Serializable {
 
 	private int shots = 1;
 
-	private boolean iced = false;
+	private boolean iced;
 
 	/** the order this item is tied to */
 	private int orderNumber;

@@ -105,7 +105,7 @@ public class DynamicTcpClientApplication {
 
 	public static class TcpRouter extends AbstractMessageRouter {
 
-		private final static int MAX_CACHED = 10; // When this is exceeded, we remove the LRU.
+		private static final int MAX_CACHED = 10; // When this is exceeded, we remove the LRU.
 
 		@SuppressWarnings("serial")
 		private final LinkedHashMap<String, MessageChannel> subFlows =
