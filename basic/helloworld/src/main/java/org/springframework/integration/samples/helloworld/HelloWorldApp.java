@@ -48,7 +48,7 @@ public class HelloWorldApp {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/spring/integration/helloWorldDemo.xml", HelloWorldApp.class);
 		MessageChannel inputChannel = context.getBean("inputChannel", MessageChannel.class);
 		PollableChannel outputChannel = context.getBean("outputChannel", PollableChannel.class);
-		inputChannel.send(new GenericMessage<String>("World"));
+		inputChannel.send(new GenericMessage<>("World"));
 		logger.info("==> HelloWorldDemo: " + outputChannel.receive(0).getPayload());
 		context.close();
 	}
