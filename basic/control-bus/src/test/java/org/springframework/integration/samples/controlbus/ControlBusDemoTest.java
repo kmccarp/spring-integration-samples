@@ -32,7 +32,7 @@ import org.springframework.messaging.support.GenericMessage;
  */
 public class ControlBusDemoTest {
 
-	private static Log logger = LogFactory.getLog(ControlBusDemoTest.class);
+	private static final Log logger = LogFactory.getLog(ControlBusDemoTest.class);
 
 	@Test
 	public void demoControlBus(){
@@ -41,9 +41,9 @@ public class ControlBusDemoTest {
 		MessageChannel controlChannel = ac.getBean("controlChannel", MessageChannel.class);
 		PollableChannel adapterOutputChanel = ac.getBean("adapterOutputChanel", PollableChannel.class);
 		logger.info("Received before adapter started: " + adapterOutputChanel.receive(1000));
-		controlChannel.send(new GenericMessage<String>("@inboundAdapter.start()"));
+		controlChannel.send(new GenericMessage<>("@inboundAdapter.start()"));
 		logger.info("Received before adapter started: " + adapterOutputChanel.receive(1000));
-		controlChannel.send(new GenericMessage<String>("@inboundAdapter.stop()"));
+		controlChannel.send(new GenericMessage<>("@inboundAdapter.stop()"));
 		logger.info("Received after adapter stopped: " + adapterOutputChanel.receive(1000));
 		ac.close();
 	}
