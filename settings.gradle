@@ -4,10 +4,10 @@ rootProject.name = 'spring-integration-samples'
 	def projectDir = new File(rootDir, it)
 	include ":${it}"
 	projectDir.eachDir { dir ->
-		if (!dir.name.startsWith('.') && 'splunk' != dir.name) {
+		if (!dir.name.startsWith('.') && !'splunk'.equals(dir.name)) {
 			include ":${dir.name}"
 			project(":${dir.name}").projectDir = new File(projectDir.absolutePath, dir.name)
-			if ('cafe' == dir.name) {
+			if ('cafe'.equals(dir.name)) {
 				dir.eachDir { cafe ->
 					include ":${cafe.name}"
 					project(":${cafe.name}").projectDir = new File(dir.absolutePath, cafe.name)

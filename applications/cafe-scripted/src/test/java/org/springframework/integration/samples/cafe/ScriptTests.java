@@ -37,7 +37,7 @@ public class ScriptTests {
 
 		Order order = new Order(0);
 		order.addItem(DrinkType.LATTE, 2, false);
-		Map<String, Object> variables = new HashMap<String, Object>();
+		Map<String, Object> variables = new HashMap<>();
 		variables.put("payload", order.getItems().get(0));
 		variables.put("timeToPrepare", 1L);
 
@@ -54,7 +54,7 @@ public class ScriptTests {
 		ScriptExecutor executor = ScriptExecutorFactory.getScriptExecutor("python");
 		Order order = new Order(0);
 		order.addItem(DrinkType.LATTE, 2, false);
-		Map<String, Object> variables = new HashMap<String, Object>();
+		Map<String, Object> variables = new HashMap<>();
 		variables.put("payload", order.getItems().get(0));
 		variables.put("timeToPrepare", "1");
 
