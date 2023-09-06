@@ -90,33 +90,44 @@ public class TwitterMessage {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
 		TwitterMessage other = (TwitterMessage) obj;
 		if (createdAt == null) {
-			if (other.createdAt != null)
-				return false;
-		} else if (!createdAt.equals(other.createdAt))
-			return false;
+            if (other.createdAt != null) {
+                return false;
+            }
+		} else if (!createdAt.equals(other.createdAt)) {
+            return false;
+        }
 		if (fromUser == null) {
-			if (other.fromUser != null)
-				return false;
-		} else if (!fromUser.equals(other.fromUser))
-			return false;
+            if (other.fromUser != null) {
+                return false;
+            }
+		} else if (!fromUser.equals(other.fromUser)) {
+            return false;
+        }
 		if (profileImageUrl == null) {
-			if (other.profileImageUrl != null)
-				return false;
-		} else if (!profileImageUrl.equals(other.profileImageUrl))
-			return false;
+            if (other.profileImageUrl != null) {
+                return false;
+            }
+		} else if (!profileImageUrl.equals(other.profileImageUrl)) {
+            return false;
+        }
 		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
-			return false;
+            if (other.text != null) {
+                return false;
+            }
+		} else if (!text.equals(other.text)) {
+            return false;
+        }
 		return true;
 	}
 
