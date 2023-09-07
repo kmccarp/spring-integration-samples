@@ -37,9 +37,9 @@ import org.springframework.util.StopWatch;
 @ManagedResource
 public class PayloadAwareTimingInterceptor implements ChannelInterceptor {
 
-	private static final ThreadLocal<StopWatchHolder> stopWatchHolder = new ThreadLocal<PayloadAwareTimingInterceptor.StopWatchHolder>();
+	private static final ThreadLocal<StopWatchHolder> stopWatchHolder = new ThreadLocal<>();
 
-	private final Map<Class<?>, Stats> statsMap = new ConcurrentHashMap<Class<?>, PayloadAwareTimingInterceptor.Stats>();
+	private final Map<Class<?>, Stats> statsMap = new ConcurrentHashMap<>();
 
 	/**
 	 *
